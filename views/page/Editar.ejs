@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <!--Link a CSS-->
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-editar">
+        <h1>Editar detalles</h1>
+    <form id="<%=id %>" class="form-editar">
+        <input id="titulo" name="titulo" type="text" placeholder="cambiar titulo">
+        <input id="editorial" name="editorial" type="text" placeholder="cambiar editorial">
+        <input id="descripcion" name="descripcion" type="text" placeholder="modificar descripcion">
+
+        <button class="btn-editar" type="submit"><i class="fas fa-edit"></i> Editar libro</button>
+    </form>
+    </div>
+
+    <script src="editar.js"></script>
+</body>
+</html>

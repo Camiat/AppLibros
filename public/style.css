@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+body{
+ background-color: beige;
+}
+
+
+.bienvenida{
+    color: brown;
+}
+
+.titulo-uno{
+   
+    margin-top: 50px;
+    margin-left: 50px;
+    font-size: 50px;
+   
+}
+
+.titulo-dos{
+    margin-bottom: 50px;
+}
+
+
+
+.container-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-right:50px;
+    margin-top:50px ;
+
+}
+
+
+.form{
+    margin-right: 50px;
+}
+
+.agregar-libro{
+    margin-right: 10px;
+}
+    
+.selector, .input , .btn {
+    color: brown;
+    height: 35px;
+    border: 2px solid gainsboro;
+}
+
+ .ver-favorito a  , .agregar-libro a {
+    color: brown;
+   
+    border: 2px solid gainsboro;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 1px;
+}
+.ver-favorito, .agregar-libro{
+    height: 30px;
+}
+
+.btn-home {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-right:50px;
+    margin-top:10px ;
+    align-items: center;
+    margin-right: 20px;
+    
+}
+
+.btn-fav{
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 1px 2px;
+    color: brown;
+   
+    border: 2px solid gainsboro;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 1px;
+}
+
+.btn-borrar, .btn-quitar{
+    color: brown;
+    border: 2px solid gainsboro;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 1px;
+    width: 30px;
+    height:30px;
+}
+
+ .btn-edit a {
+    color: brown;
+    border: 2px solid gainsboro;
+    text-decoration: none;
+    text-align: center;
+    padding:5px 1px;
+    width: 60px;
+    text-decoration: none;
+
+
+}
+.btn-edit{
+    height: 30px;
+}
+
+.btn-quitar{
+    width: 60px;
+    cursor: pointer;
+}
+
+
+.btn{
+    cursor: pointer;
+    padding: 2px 2px;
+}
+
+
+.titulo-dos{
+    font-size: 30px;
+    margin-left: 50px;
+    margin-top: 20px;
+    
+}
+ 
+.container{
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.libro {
+    /* height: fit-content;  */
+    border: 1px solid black;
+   box-shadow: 5px 5px 5px gray;
+   background-color: #708b9850;
+   border-radius: 10px;
+   padding: 15px; 
+   /* border-radius:  */
+} 
+
+#content-container {
+    display: flex;
+}
+
+.titulo-libro{
+
+    margin-bottom: 5px;
+}
+
+img{
+    width: 150px;
+}
+
+
+.autores{
+   display: flex;
+   flex-direction: row;
+}
+
+
+.name{
+    font-size: 18px;
+    margin-left: 9px;
+    
+}
+
+
+/* Archivo favorito.ejs */
+.container-fav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    
+}
+
+
+.fav{
+    color: brown;
+    margin-left: 20px;
+}
+
+.h2{
+  color: brown;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+/* Archivo agregar.ejs y Archivo editar.ejs */
+.agregar h1,.container-editar h1{
+    color: brown;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    
+}
+
+.agregar form, .container-editar form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top:20px ;
+    margin-left: 20px;
+
+}
+
+.agregar form input,  .container-editar form input{
+    padding: 10px;
+    width: 600px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+
+.form-resena, #container-comentarios{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    
+}
+
+#container-comentarios {
+    flex-direction: column;
+}
+
+#container-comentario p{
+    border: 2px solid black;
+}
+    
+.container-resena {
+    display: flex;
+    gap: 20px;
+}
+
+
+.btn-agregar, .btn-editar{
+    width: 200px;
+    height: 25px;
+    background-color: lightgrey;
+    margin-top: 10px;
+}
+
+.quitar-edit{
+    margin-bottom: 10px;
+}
+
+/* --------------------------------------------------- */
+
+  
+ /* .libro { */
+     /* height: fit-content;  */
+     /* border: 1px solid black; */
+    /* box-shadow: 5px 5px 5px gray; */
+    /* background-color: #0ea5e950; */
+    /* border-radius: 10px; */
+    /* padding: 15px;  */
+    /* border-radius:  */
+ /* }  */
+
+/* #content-container {
+    display: flex;
+} */
+
+#info-libro {
+    flex-basis: 50%;
+}
+
+#resenas {
+    flex-basis: 50%;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <!--Link a CSS-->
+    <link rel="stylesheet" href="/style.css">
+    <title>Libros</title>
+</head>
+
+<body>
+  <div class="bienvenida">
+    <h1 class="titulo-uno"> <i class="fas fa-book"></i>Bienvenido a la biblioteca</h1>
+    
+    <div class="container-btn">
+          <form  class="form" id="form-busqueda" action="">
+            <select class="selector" id="busqueda" name="busqueda">
+              <option value="editorial">Editorial</option>
+              <option value="titulo" selected>Título</option>
+              <option value="autor">Autor</option>
+            </select>
+  
+            <input class="input" id="input" type="text" placeholder="  ¿Qué libro buscas?">
+        
+            <button class="btn"><i class="fas fa-search"></i> Buscar</button>
+          </form>
+     
+          <div class="botones">
+            <button class="agregar-libro">
+              <a href="/agregar"> Agregar libro <i class="fas fa-plus"></i></a>
+            </button>
+            <button class="ver-favorito"><a href="/ver-favorito"> Ver favoritos <i class="fas fa-heart"></i></a></button>
+          </div>
+      
+    </div>
+
+    <h2 class="titulo-dos">Libros Recomendados:</h2>
+             
+    <div class="container">
+      <% if (libros && libros.length > 0) { %>
+
+      <% libros.forEach(libro => { %>
+ 
+          <!-- codigo de js le paso los id de la api del back al front -->
+          <div class="libro">
+            <div class="btn-home">
+              <h3 class="titulo-libro"><%= libro.titulo %></h3>
+              <div>
+                <button class="btn-edit" >
+                  <a  href="/editar?id=<%=libro.id%>">Editar Libro</a>
+                </button>
+
+                <% if (libro.favorito === true) { %>
+                  <button class="btn-fav" onclick="quitarFavoritos('<%= libro.id %>')" class="quitar-fav" id="quitar-favorito">Quitar Favorito</button>
+                <% } else { %>
+                  <button class="btn-fav" onclick="agregarFavorito('<%= libro.id %>', '<%= libro.titulo %>', '<%= libro.imagen %>', '<%= libro.autores %>', '<%= libro.editorial %>', '<%= libro.descripcion %>')" id="agregar-favorito">Agregar a favoritos</button>
+                <% } %>
+                
+                <button id="<%= libro.id %>" class="borrar-libro btn-borrar">X</button>
+              </div>
+            </div>
+
+            <div id="content-container">
+              <div id="info-libro">
+                <img src="<%= libro.imagen %>" alt="">
+
+                <%  if (libro.autores && libro.autores.length > 0) { %>
+                  <div class="autores">
+                    <% libro.autores.forEach(autor => { %>
+                      <p class="name"><%= autor %></p>
+                    <% }); %>
+                  </div>
+                <% } %>
+
+                <p class="editorial">Editorial:<%= libro.editorial %></p>
+                <p><%= libro.descripcion %></p>
+              </div>
+
+              <div id="resenas">
+
+                <div id="container-comentarios">
+                  <% libro.resenas.forEach(resena => { %>
+                    <div class="container-resena">
+                      <p><%= resena.comentario %></p>
+                      <p><%= resena.calificacion %></p>
+                    </div>
+                  <% }); %>
+                </div>
+
+                <form id="<%= libro.id %>" class="form-resena">
+                  
+                      <div>
+                       <label for="calificacion">Califica este libro</label>
+                       <input id="calificacion" type="number" max="10" min="0">
+                      </div>
+
+                      <textarea name="" id="comentario" placeholder=" Agregar comentarios"></textarea>
+                 
+                  <button type="submit">Enviar</button>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+          
+
+      <% }); %>
+             
+        <% } else { %>
+          <p>No hay libros disponibles en este momento.</p>
+        <% } %>
+    </div>    
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+

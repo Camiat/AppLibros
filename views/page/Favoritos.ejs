@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fav">
+    <h1 class="fav">Mis favoritos</h1>
+    <a href="/"><i class="fas fa-arrow-left"></i> Volver a la Página principal</a>
+    </div>
+    <div>
+        <div class="container">
+        <% favoritos.forEach(libro=> { %>
+            <div class="libro">
+                <!-- codigo de js le paso los id de la api del back al front -->
+
+                <button onclick="quitar('<%= libro.id %>')" class="btn-quitar"> Quitar</button>
+                <button class="btn-edit"><a href="/editar?id=<%=libro.id%>"> Editar Libro</a></button>
+            
+                
+                <h3 class="titulo-libro">
+                    <%= libro.titulo %>
+                </h3>
+                <img src="<%= libro.imagen %>" alt="">
+
+                <% if (libro.autores && libro.autores.length> 0) { %>
+                    <div class="autores">
+                        <% libro.autores.forEach(autor=> { %>
+
+                            <p class="name">
+                                <%= autor %>
+                            </p>
+
+                            <% }); %>
+                    </div>
+                    <% } %>
+
+                        <p class="">Editorial:<%= libro.editorial %>
+                        </p>
+                        <p>
+                            <%= libro.descripcion %>
+                        </p>
+            </div>
+        <% }); %>
+
+                <div>
+                    <h2 class="h2">Quiza podrían gustarte:</h2>
+
+                    <div class="container">
+                        <% recomendados.forEach(libro => { %>
+                            <div class="libro">
+                                <!-- codigo de js le paso los id de la api del back al front -->
+                
+                                <button onclick="quitar('<%= libro.id %>')" class="btn-quitar">Quitar</button>
+                                <button class="btn-edit"><a href="/editar?id=<%=libro.id%>">Editar Libro</a></button>
+                            
+                                
+                                <h3 class="titulo-libro">
+                                    <%= libro.titulo %>
+                                </h3>
+                                <img src="<%= libro.imagen %>" alt="">
+                
+                                <% if (libro.autores && libro.autores.length> 0) { %>
+                                    <div class="autores">
+                                        <% libro.autores.forEach(autor=> { %>
+                
+                                            <p class="name">
+                                                <%= autor %>
+                                            </p>
+                
+                                            <% }); %>
+                                    </div>
+                                    <% } %>
+                
+                                        <p class="">Editorial:<%= libro.editorial %>
+                                        </p>
+                                        <p>
+                                            <%= libro.descripcion %>
+                                        </p>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    <script src="favorito.js"></script>
+</body>
+
+</html>
